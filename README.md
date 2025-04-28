@@ -1,54 +1,26 @@
-# React + TypeScript + Vite
+para rodar o projeto é necessario ter nodejs, a ultima versão estavel instalada.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+  yarn install
+  ou
+  npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Logo apos isso rodar
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+  yarn dev
+  ou
+  npm dev
+```
+
+Sobre o projeto não consegui finalizar a solução.
+Para a paginação decidi um contextapi, mas provavelmente para essa solução um zustand seria mais performatico e deixaria o codigo mais claro, além de não ser necessario o component filho conhecer da implementação (no caso ele não deve saber como é a gerencia do estado, só assim ele fica generico).
+
+Existem alguns compartilhamentos de estado, mas quem estaria centralizando esses dados seria a pagina.
+Os elementos como tabelas, filtros e paginação devem ficar genericos.
+
+Apenas recebendo propriedades da pagina em si, tão tendo instancias diretas dentro desse components, sem side effects.
+da forma que está o page pode passar as props para esses components, sem preocupações com propdrilling.
+
+
